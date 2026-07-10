@@ -8,7 +8,7 @@ Déchiffrer le message pour obtenir le flag.
 
 
 ## Fichier
-message.txt
+./files/message.txt
 
 
 -----------
