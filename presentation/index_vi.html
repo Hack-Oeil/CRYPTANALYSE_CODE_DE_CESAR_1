@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CTF của Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Kiểm tra xem cửa sổ có nằm trong iframe không
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Thử thách #11</h3>
+                            <h2 class="section-title">Ave, Caesar!</h2>
+                            <p>
+                                Mục tiêu: Giải mã thông điệp để lấy cờ (flag).
+                            </p>
+                            <h4>Tệp cần nghiên cứu:</h4>
+                            <span>./files/message.txt</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Học tập</h3>
+                            <h2 class="section-title">Tài liệu và Video</h2>
+                            <p class="section-subtitle">
+                                Hiện chưa có tài liệu nào
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Trợ giúp</h3>
+                            <h2 class="section-title">Gợi ý và manh mối</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Chủ đề trên
+                                    Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Quay lại đầu trang" title="Quay lại đầu trang"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Cyrhades CTF</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 창이 iframe 안에 있는지 확인
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>챌린지 #11</h3>
+                            <h2 class="section-title">아베, 카이사르!</h2>
+                            <p>
+                                목표: 메시지를 복호화하여 플래그를 획득하세요.
+                            </p>
+                            <h4>분석할 파일:</h4>
+                            <span>./files/message.txt</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>학습</h3>
+                            <h2 class="section-title">문서 및 동영상</h2>
+                            <p class="section-subtitle">
+                                현재 이용 가능한 문서가 없습니다
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>도움말</h3>
+                            <h2 class="section-title">팁과 힌트</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord 스레드</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="맨 위로 돌아가기" title="페이지 상단으로 이동"></a>
+    </div>
+</body>
+
+</html>

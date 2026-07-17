@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Cyrhades的CTF挑战</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 检查窗口是否在iframe中
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>挑战 #11</h3>
+                            <h2 class="section-title">致敬，凯撒！</h2>
+                            <p>
+                                目标：解密消息以获取旗帜（flag）。
+                            </p>
+                            <h4>需要研究的文件：</h4>
+                            <span>./files/message.txt</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>学习</h3>
+                            <h2 class="section-title">文档与视频</h2>
+                            <p class="section-subtitle">
+                                目前暂无文档
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>帮助</h3>
+                            <h2 class="section-title">建议与提示</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord上的讨论帖</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="回到顶部" title="回到页面顶部"></a>
+    </div>
+</body>
+
+</html>

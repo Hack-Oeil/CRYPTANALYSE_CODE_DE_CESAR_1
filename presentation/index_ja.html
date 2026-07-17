@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CyrhadesのCTF</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ウィンドウがiframe内にあるか確認
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>チャレンジ #11</h3>
+                            <h2 class="section-title">アヴェ、シーザー！</h2>
+                            <p>
+                                目標：メッセージを復号してフラグを取得する。
+                            </p>
+                            <h4>調査するファイル：</h4>
+                            <span>./files/message.txt</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>学習</h3>
+                            <h2 class="section-title">ドキュメントと動画</h2>
+                            <p class="section-subtitle">
+                                現在、ドキュメントはありません
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>ヘルプ</h3>
+                            <h2 class="section-title">ヒントと手がかり</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discordのスレッド</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="ページトップに戻る" title="ページの先頭に戻る"></a>
+    </div>
+</body>
+
+</html>
